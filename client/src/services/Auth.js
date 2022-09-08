@@ -39,18 +39,9 @@ export const RegisterSeeker = async (data) => {
 }
 
 
-export const CheckEmployerSession = async (data) => {
+export const CheckSession = async () => {
   try {
-    const res = await Client.get('api/employers/session', data)
-    return res.data
-  } catch (error) {
-    throw error
-  }
-}
-
-export const CheckSeekerSession = async (data) => {
-  try {
-    const res = await Client.get('api/seekers/session', data)
+    const res = await Client.get('api/employers/session')
     return res.data
   } catch (error) {
     throw error

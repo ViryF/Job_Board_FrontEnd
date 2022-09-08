@@ -8,6 +8,7 @@ import './styles/App.css';
 import { Routes, Route } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react';
+import { CheckSession } from './services/Auth';
 
 const BASE_URL = 'http://localhost:3001/api'
 
@@ -18,7 +19,7 @@ function App() {
 
 
 const [latestJobPosts, setLatestJobPosts] = useState([])
-// const [jobPosts, setJobPosts] = useState([])
+const [jobPosts, setJobPosts] = useState([])
 // const [selectedJobPost, setSelectedJobPost] = useState(null)
 // const [profileDetails, setProfileDetails] = useState([])
 const [authenticated, toggleAuthenticated] = useState(false)
@@ -30,15 +31,36 @@ const getLatestJobPosts = async () => {
   console.log(latest.data)
   setLatestJobPosts(latest.data)
 }
+const getAllJobPosts = async () => {
+  const jobPosts = await axios.get(`${BASE_URL}/jobPosts/`)
+  console.log(jobPosts)
+  setJobPosts(jobPosts)
+}
 
 useEffect(() => {
+  const status = localStorage.getItem('token')
+  if (status) {
+    checkToken()
+  }
 getLatestJobPosts()
+getAllJobPosts()
 },[])
 
-const handleLogOut = () => {
-  setUser(null)
-  toggleAuthenticated(false)
-  localStorage.clear()
+
+  const handleLogOut = () => {
+    setUser(null)
+    toggleAuthenticated(false)
+    localStorage.clear()
+  }
+
+
+
+const checkToken = async () => {
+    const user = await CheckSession()
+    console.log(user)
+    setUser(user)
+    toggleAuthenticated(true)
+  
 }
 
   return (
@@ -54,7 +76,7 @@ const handleLogOut = () => {
           <Route path="/" element={ <Feed latestJobPosts={ latestJobPosts } /> } />
           <Route path="/register" element={ <Register /> } />
           <Route path="/login" element={ <Login setUser={setUser} toggleAuthenticated={toggleAuthenticated} /> } />
-          <Route path="/profile" element={ <Profile user={user} authenticated={authenticated}  /> } />
+          <Route path="/profile" element={ <Profile user={user} authenticated={authenticated} jobPosts={jobPosts} /> } />
           {/* <Route path="/jobListings" element={ <JobListings /> } />
           <Route path="/jobListings/:id" element={ <JobDetails /> } />  */}
         </Routes>
