@@ -37,22 +37,22 @@ return (
     <div className="card-overlay centered">
       <form className="col" onSubmit={handleSubmit}>
         <div className="input-wrapper">
-          <label htmlFor="companyName">Company Name</label>
+          <label htmlFor="companyName">Company Name: </label>
           <input onChange={handleChange} name="companyName" type="text" placeholder="Enter your company's name" value={employerFormValues.companyName} required />
         </div>
 
         <div className="input-wrapper">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Email: </label>
           <input onChange={handleChange} name="email" type="text" placeholder="Enter your email" value={employerFormValues.email} required />
         </div>
 
         <div className="input-wrapper">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password: </label>
           <input onChange={handleChange} name="password" type="text" placeholder="Enter your password" value={employerFormValues.password} required />
         </div>
 
         <div className="input-wrapper">
-          <label htmlFor="confirmPassword">Confirm Password</label>
+          <label htmlFor="confirmPassword">Confirm Password: </label>
           <input onChange={handleChange} name="confirmPassword" type="text" placeholder="Confirm your password" value={employerFormValues.confirmPassword} required />
         </div>
         <button

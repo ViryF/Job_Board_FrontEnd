@@ -9,15 +9,14 @@ const Nav = ({ authenticated, user, logOut}) => {
         <div>
           <div>
             <h4>Super Awesome Job Board</h4>
-            <h3>Welcome Back, {user.firstName}!</h3>
+            <h3>Welcome Back!</h3>
             <img className='profilePic' src={user.profilePicture} alt="The user's profile pic" />
             <div>
               <Link to="/" className='links'>Feed</Link>
-              <Link to="/profile" className='links'>My Profile</Link>
+              <Link to="/profile" className='links'>Home</Link>
               <Link to="/settings" className='links'>Settings</Link>
-              <Link to="/jobListings" className='links'>All Job Posts</Link>
-              <Link to="/chat" className='links'>My Conversations</Link>
-              <Link onClick={logOut} to="/" className='links'>Log Out</Link>
+              {/* <Link to="/chat" className='links'>My Conversations</Link> */}
+              <Link onClick={logOut} to="/Feed" className='links'>Log Out</Link>
             </div>
           </div>
         </div>

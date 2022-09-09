@@ -1,3 +1,4 @@
+import JobDetails from './components/JobDetails';
 import Profile from './components/Profile'
 import Login from './components/Login'
 import Register from './components/Register'
@@ -15,9 +16,6 @@ const BASE_URL = 'http://localhost:3001/api'
 
 function App() {
 
-
-
-
 const [latestJobPosts, setLatestJobPosts] = useState([])
 const [jobPosts, setJobPosts] = useState([])
 // const [selectedJobPost, setSelectedJobPost] = useState(null)
@@ -28,40 +26,36 @@ const [user, setUser] = useState(null)
 
 const getLatestJobPosts = async () => {
   const latest = await axios.get(`${BASE_URL}/jobPosts/latest`)
-  console.log(latest.data)
   setLatestJobPosts(latest.data)
 }
+
 const getAllJobPosts = async () => {
-  const jobPosts = await axios.get(`${BASE_URL}/jobPosts/`)
-  console.log(jobPosts)
-  setJobPosts(jobPosts)
+  const data = await axios.get(`${BASE_URL}/jobPosts/all`)
+  setJobPosts(data.data)
 }
 
+const handleLogOut = () => {
+  setUser(null)
+  toggleAuthenticated(false)
+  localStorage.clear()
+}
+
+
+
+const checkToken = async () => {
+  const user = await CheckSession()
+  setUser(user)
+  toggleAuthenticated(true)
+  
+}
 useEffect(() => {
   const status = localStorage.getItem('token')
   if (status) {
     checkToken()
   }
-getLatestJobPosts()
-getAllJobPosts()
+  getLatestJobPosts()
+  getAllJobPosts()
 },[])
-
-
-  const handleLogOut = () => {
-    setUser(null)
-    toggleAuthenticated(false)
-    localStorage.clear()
-  }
-
-
-
-const checkToken = async () => {
-    const user = await CheckSession()
-    console.log(user)
-    setUser(user)
-    toggleAuthenticated(true)
-  
-}
 
   return (
     <div className="App">
@@ -76,9 +70,9 @@ const checkToken = async () => {
           <Route path="/" element={ <Feed latestJobPosts={ latestJobPosts } /> } />
           <Route path="/register" element={ <Register /> } />
           <Route path="/login" element={ <Login setUser={setUser} toggleAuthenticated={toggleAuthenticated} /> } />
-          <Route path="/profile" element={ <Profile user={user} authenticated={authenticated} jobPosts={jobPosts} /> } />
-          {/* <Route path="/jobListings" element={ <JobListings /> } />
-          <Route path="/jobListings/:id" element={ <JobDetails /> } />  */}
+          <Route path="/profile" element={ <Profile user={user} authenticated={authenticated} jobPosts={ jobPosts } /> } />
+          {/* <Route path="/jobListings" element={ <JobListings /> } /> */}
+          <Route path="/jobListings/:id" element={ <JobDetails /> } />
         </Routes>
       </main>
     </div>
