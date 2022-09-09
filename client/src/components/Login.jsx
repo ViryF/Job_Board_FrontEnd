@@ -25,14 +25,12 @@ const Login = ({ setUser, toggleAuthenticated }) => {
       let seeker = await axios.post(`${BASE_URL}/seekers/check`, LoginValues)
       if (seeker.data) {
         const payload = await SignInSeeker(LoginValues)
-        console.log(payload)
         setLoginValues(initialLoginValues)
         setUser(payload)
         toggleAuthenticated(true)
         navigate('/profile')
       } else {
         const payload = await SignInEmployer(LoginValues)
-        console.log(payload)
         setLoginValues(initialLoginValues)
         setUser(payload)
         toggleAuthenticated(true)

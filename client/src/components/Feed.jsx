@@ -15,10 +15,10 @@ const Feed = ({ latestJobPosts }) => {
       </div>
       <div className="latest-jobs-grid">
         {
-          latestJobPosts?.map((JobPost) => (
-            <div className="jobPost-card" key={JobPost.id}>
-              <h2>{JobPost.title}</h2>
-              <h3>{JobPost.description}</h3>
+          latestJobPosts?.map((jobPost) => (
+            <div className="jobPost-card" key={jobPost._id}>
+              <h2>{jobPost.title}</h2>
+              <h3>{jobPost.description}</h3>
               <button onClick={() => navigate('/login')}>Login to view details about this posting</button> 
 
               {/* <h3>{JobPost.requirements}</h3> */}

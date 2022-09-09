@@ -1,42 +1,31 @@
-import { useNavigate } from 'react-router-dom'
+import EmployerProfile from './EmployerProfile'
+import SeekerProfile from './SeekerProfile'
+import { useState, useEffect } from 'react'
 
+const Profile = ({ user, authenticated, jobPosts, getJobPosts }) => {
 
-const BASE_URL = 'http://localhost:3001/api'
+  const [userType, setUserType] = useState(false)
 
-const Profile = ({ user, authenticated, jobPosts }) => {
-  let navigate = useNavigate()
-  
+  useEffect(()=> {
+    getJobPosts()
+  }, [])
 
+  let loggedUser
+
+  if(!userType) {
+    loggedUser = <SeekerProfile jobPosts={jobPosts} />
+  } else {
+    loggedUser = <EmployerProfile jobPosts={jobPosts} />
+  }
 
   return user && authenticated ? (
-    <div className="profile-page">
-      <div className="profile">
-        <h2 className="Welcome-user">Here's a list of the total jobs posted at the moment!</h2>
-        <div className="allJobs">
-          {jobPosts &&
-            jobPosts?.map((jobPost, index) => (
-              <div className="jobPost-card" key={jobPost._id}>
-                <h2>{jobPost.title}</h2>
-                <h4>{jobPost.salary}</h4>
-                <button onClick={()=> navigate(`/jobListings/${jobPost._id}/${index}`)}>Click Here for details about this posting</button> 
-                {/* <h3>{jobPost.description}</h3>
-                <h3>{jobPost.requirements}</h3>
-                <h4>{jobPost.location}</h4> */}
-                {/* <h4>{jobPost.employer}</h4> 
-                {/* <h4>{jobPost.application_url}</h4> */}
-              </div>
-            ))
-          }
-        </div>
-      </div>
+    <div className='profile-page'>
+      <div className='profile-container'>{loggedUser}</div>
     </div>
-  ) : (
-    <div>
-      <h2>You must be signed in to access this page!</h2>
-      <button onClick={()=> navigate('/login')}>Sign In</button>
-    </div>
+  ) 
+  : (
+    <div>You must be signed in to access this page!</div>
   )
-  
 }
 
 export default Profile
