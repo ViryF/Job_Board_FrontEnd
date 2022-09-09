@@ -14,11 +14,11 @@ const Profile = ({ user, authenticated, jobPosts }) => {
         <h2 className="Welcome-user">Here's a list of the total jobs posted at the moment!</h2>
         <div className="allJobs">
           {jobPosts &&
-            jobPosts?.map((jobPost) => (
+            jobPosts?.map((jobPost, index) => (
               <div className="jobPost-card" key={jobPost._id}>
                 <h2>{jobPost.title}</h2>
                 <h4>{jobPost.salary}</h4>
-                <button onClick={()=> navigate(`/jobListings/${jobPost._id}`)}>Click Here for details about this posting</button> 
+                <button onClick={()=> navigate(`/jobListings/${jobPost._id}/${index}`)}>Click Here for details about this posting</button> 
                 {/* <h3>{jobPost.description}</h3>
                 <h3>{jobPost.requirements}</h3>
                 <h4>{jobPost.location}</h4> */}

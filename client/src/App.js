@@ -6,7 +6,7 @@ import Feed from './components/Feed';
 import Nav from './components/Nav'
 import React from 'react';
 import './styles/App.css';
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 import { CheckSession } from './services/Auth';
@@ -18,11 +18,12 @@ function App() {
 
 const [latestJobPosts, setLatestJobPosts] = useState([])
 const [jobPosts, setJobPosts] = useState([])
-// const [selectedJobPost, setSelectedJobPost] = useState(null)
+const [selectedJobPost, setSelectedJobPost] = useState(null)
 // const [profileDetails, setProfileDetails] = useState([])
 const [authenticated, toggleAuthenticated] = useState(false)
 const [user, setUser] = useState(null)
 
+let { JobPostId } = useParams()
 
 const getLatestJobPosts = async () => {
   const latest = await axios.get(`${BASE_URL}/jobPosts/latest`)
@@ -32,6 +33,10 @@ const getLatestJobPosts = async () => {
 const getAllJobPosts = async () => {
   const data = await axios.get(`${BASE_URL}/jobPosts/all`)
   setJobPosts(data.data)
+}
+
+const selectJobPost = async () => {
+  const data = await axios.get(`${BASE_URL}/jobPosts/${JobPostId}`)
 }
 
 const handleLogOut = () => {
@@ -70,9 +75,8 @@ useEffect(() => {
           <Route path="/" element={ <Feed latestJobPosts={ latestJobPosts } /> } />
           <Route path="/register" element={ <Register /> } />
           <Route path="/login" element={ <Login setUser={setUser} toggleAuthenticated={toggleAuthenticated} /> } />
-          <Route path="/profile" element={ <Profile user={user} authenticated={authenticated} jobPosts={ jobPosts } /> } />
-          {/* <Route path="/jobListings" element={ <JobListings /> } /> */}
-          <Route path="/jobListings/:id" element={ <JobDetails /> } />
+          <Route path="/profile" element={ <Profile user={user} authenticated={authenticated} jobPosts={jobPosts} /> } />
+          <Route path="/jobListings/:id/:index" element={ <JobDetails user={user} authenticated={authenticated} selectedJobPost={selectedJobPost} setSelectedJobPost={selectedJobPost}/> } />
         </Routes>
       </main>
     </div>
