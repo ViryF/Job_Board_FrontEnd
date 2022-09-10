@@ -17,7 +17,7 @@ const Profile = ({ user, authenticated, jobPosts, getJobPosts }) => {
     loggedUser = <SeekerProfile jobPosts={jobPosts} />
   } else {
     // setUserType(true)
-    loggedUser = <EmployerProfile jobPosts={jobPosts} />
+    loggedUser = <EmployerProfile jobPosts={jobPosts} getJobPosts={getJobPosts}/>
   }
 
   return user && authenticated ? (

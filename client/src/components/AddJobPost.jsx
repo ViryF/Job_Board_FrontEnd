@@ -8,6 +8,7 @@ const NewJobPost = () => {
 
   const initialFormState = {
     // employer: '', // need to figure out how to get this value to auto fill with the employer Id from either params or from the req.body
+    employer: '6316654281dd6febb3fa3a80',
     title: '',
     description: '',
     requirements: '',

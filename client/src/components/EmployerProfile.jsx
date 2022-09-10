@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
+import Client from "../services/api"
 
-
-const EmployerProfile = ({ jobPosts }) => {
+const EmployerProfile = ({ jobPosts, getJobPosts }) => {
   
-  // let { employerId } = useParams()
+  let { employerId, jobPostId } = useParams()
   let navigate = useNavigate()
 
   // const [profileDetails, setProfileDetails] = useState([])
+
+  const deletePost = async (jobPostId) => {
+    await Client.delete(`/api/jobPosts/${jobPostId}`)
+    getJobPosts()
+  }
 
   return (  
     <div>
@@ -21,7 +26,9 @@ const EmployerProfile = ({ jobPosts }) => {
                 <div className="jobPost-card" key={jobPost._id}>
                   <h2>{jobPost.title}</h2>
                   <h4>{jobPost.salary}</h4>
-                  <button onClick={()=> navigate(`/jobListings/${jobPost._id}/${index}`)}>Click Here for details about this posting</button> 
+                  <button onClick={()=> navigate(`/jobListings/${jobPost._id}/${index}`)}>Click Here for details about this posting</button>
+                  <Link to={``}><button>Edit Post</button></Link>
+                  <button onClick={()=>deletePost(jobPost._id)}>Delete Post</button>
                 </div>
               ))
             }

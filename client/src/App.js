@@ -83,7 +83,7 @@ useEffect(() => {
           <Route path="/profile" element={ <Profile user={user} authenticated={authenticated} jobPosts={jobPosts} getJobPosts={getJobPosts} /> } />
           <Route path="/jobListings/:id/:index" element={ <JobDetails user={user} authenticated={authenticated} selectedJobPost={selectedJobPost} setSelectedJobPost={selectedJobPost}/> } />
           <Route path="/addJobPost" element={ <AddJobPost /> } />
-          <Route path="/:jobPostId/editJobPost" element={ <EditJobPost jobPosts={jobPosts} selectedJobPost={selectedJobPost} /> } />
+          <Route path="/:jobPostId/:index" element={ <EditJobPost jobPosts={jobPosts} selectedJobPost={selectedJobPost} /> } />
         </Routes>
       </main>
     </div>
