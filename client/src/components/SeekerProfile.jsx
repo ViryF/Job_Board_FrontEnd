@@ -1,17 +1,14 @@
-import axios from "axios"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
-const BASE_URL = 'http://localhost:3001/api'
-
-const SeekerProfile = ({ user, jobPosts }) => {
+const SeekerProfile = ({ jobPosts }) => {
   
   let navigate = useNavigate()
 
-  const [profileDetails, setProfileDetails] = useState([])
+  // const [profileDetails, setProfileDetails] = useState([])
 
 
-  return ( // user && authenticated 
+  return (
     <div>
       <h1>This is the Seeker Profile</h1>
       <div className="profile-page">
@@ -22,7 +19,7 @@ const SeekerProfile = ({ user, jobPosts }) => {
                 <div className="jobPost-card" key={jobPost._id}>
                   <h2>{jobPost.title}</h2>
                   <h4>{jobPost.salary}</h4>
-                  {/* <button onClick={()=> navigate(`/jobListings/${jobPost._id}/${index}`)}>Click Here for details about this posting</button>  */}
+                  <button onClick={()=> navigate(`/jobListings/${jobPost._id}/${index}`)}>Click Here for details about this posting</button> 
                 </div>
               ))
             }
@@ -31,12 +28,6 @@ const SeekerProfile = ({ user, jobPosts }) => {
       </div>
     </div>
   ) 
-  // : (
-  //   <div>
-  //     <h2>You must be signed in to access this page!</h2>
-  //     <button onClick={()=> navigate('/login')}>Sign In</button>
-  //   </div>
-  // )
 }
 
 export default SeekerProfile

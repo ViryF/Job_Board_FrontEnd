@@ -1,3 +1,5 @@
+import EditJobPost from './components/EditJobPost';
+import AddJobPost from './components/AddJobPost'
 import JobDetails from './components/JobDetails';
 import Profile from './components/Profile'
 import Login from './components/Login'
@@ -22,6 +24,7 @@ const [jobPosts, setJobPosts] = useState([])
 const [selectedJobPost, setSelectedJobPost] = useState(null)
 const [authenticated, toggleAuthenticated] = useState(false)
 const [user, setUser] = useState(null)
+
 
 let { JobPostId } = useParams()
 
@@ -79,6 +82,8 @@ useEffect(() => {
           <Route path="/login" element={ <Login setUser={setUser} toggleAuthenticated={toggleAuthenticated} /> } />
           <Route path="/profile" element={ <Profile user={user} authenticated={authenticated} jobPosts={jobPosts} getJobPosts={getJobPosts} /> } />
           <Route path="/jobListings/:id/:index" element={ <JobDetails user={user} authenticated={authenticated} selectedJobPost={selectedJobPost} setSelectedJobPost={selectedJobPost}/> } />
+          <Route path="/addJobPost" element={ <AddJobPost /> } />
+          <Route path="/:jobPostId/editJobPost" element={ <EditJobPost jobPosts={jobPosts} selectedJobPost={selectedJobPost} /> } />
         </Routes>
       </main>
     </div>

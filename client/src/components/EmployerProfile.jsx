@@ -1,29 +1,27 @@
-import axios from "axios"
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 
-const BASE_URL = 'http://localhost:3001/api'
 
-const EmployerProfile = ({ user, authenticated, jobPosts }) => {
+const EmployerProfile = ({ jobPosts }) => {
   
+  // let { employerId } = useParams()
   let navigate = useNavigate()
 
-  const [profileDetails, setProfileDetails] = useState([])
+  // const [profileDetails, setProfileDetails] = useState([])
 
-
-
-  return ( // user && authenticated  
+  return (  
     <div>
       <h1>This is the Employer Profile</h1>
       <div className="profile-page">
         <div className="profile">
           <h1 className="Welcome-user">Here's a list of the total jobs posted at the moment!</h1>
+          <Link to={`/addJobPost`}><button>Add New Job Post</button></Link>
           <div className="allJobs">
             {jobPosts?.map((jobPost, index) => (
                 <div className="jobPost-card" key={jobPost._id}>
                   <h2>{jobPost.title}</h2>
                   <h4>{jobPost.salary}</h4>
-                  {/* <button onClick={()=> navigate(`/jobListings/${jobPost._id}/${index}`)}>Click Here for details about this posting</button>  */}
+                  <button onClick={()=> navigate(`/jobListings/${jobPost._id}/${index}`)}>Click Here for details about this posting</button> 
                 </div>
               ))
             }
@@ -32,12 +30,6 @@ const EmployerProfile = ({ user, authenticated, jobPosts }) => {
       </div>
     </div>
   )
-  // : (
-  //   <div>
-  //     <h2>You must be signed in to access this page!</h2>
-  //     <button onClick={()=> navigate('/login')}>Sign In</button>
-  //   </div>
-  // )
 }
 
 export default EmployerProfile
