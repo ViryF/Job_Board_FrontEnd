@@ -13,7 +13,7 @@ const JobDetails = () => {
           
         </div>
       </div>
-      <button onClick={()=>navigate('/profile')}>Go Back</button>
+      <button onClick={()=>navigate('/profile')}>Back</button>
     </div>
   )
 }

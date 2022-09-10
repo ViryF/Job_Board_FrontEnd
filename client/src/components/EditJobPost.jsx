@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { useState } from "react"
 import Client from "../services/api"
 
-const EditJobPost = ({ jobPosts, selectedJobPost }) => {
+const EditJobPost = ({ jobPosts }) => {
   let navigate = useNavigate()
 
   let { jobPostId, index } = useParams()

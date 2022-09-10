@@ -32,7 +32,7 @@ const NewJobPost = () => {
     <div className="addPost">
       <h1>Create a job post now!</h1>
       <h4>Please enter your information below...</h4>
-      <form onSubmit={handleSubmit}>
+      <form className="col" onSubmit={handleSubmit}>
 
         <label htmlFor="title">Title: </label>
         <input id="title" type="text" placeholder="Enter the job title here" value={formValues.title} onChange={handleChange} />

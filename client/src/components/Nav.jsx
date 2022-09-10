@@ -5,7 +5,7 @@ const Nav = ({ authenticated, user, handleLogOut}) => {
   let isAuthenticated
   if(user) {
     isAuthenticated = (
-      <nav>
+      <nav className='navbar'>
         <div>
           <div>
             <h4>Super Awesome Job Board</h4>
@@ -23,7 +23,7 @@ const Nav = ({ authenticated, user, handleLogOut}) => {
     )
   }
   const notAuthenticated = (
-    <nav>
+    <nav className='navbar'>
       <div>
         <h4>Super Awesome Job Board</h4>
         <Link to="/feed">Feed</Link>

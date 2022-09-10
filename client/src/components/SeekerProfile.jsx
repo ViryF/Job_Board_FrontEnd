@@ -19,7 +19,7 @@ const SeekerProfile = ({ jobPosts }) => {
                 <div className="jobPost-card" key={jobPost._id}>
                   <h2>{jobPost.title}</h2>
                   <h4>{jobPost.salary}</h4>
-                  <button onClick={()=> navigate(`/jobListings/${jobPost._id}/${index}`)}>Click Here for details about this posting</button> 
+                  <button onClick={()=> navigate(`/${jobPost._id}/${index}`)}>Click Here for details about this posting</button> 
                 </div>
               ))
             }
