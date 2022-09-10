@@ -27,7 +27,7 @@ const EmployerProfile = ({ jobPosts, getJobPosts }) => {
                   <h2>{jobPost.title}</h2>
                   <h4>{jobPost.salary}</h4>
                   <button onClick={()=> navigate(`/jobListings/${jobPost._id}/${index}`)}>Click Here for details about this posting</button>
-                  <Link to={``}><button>Edit Post</button></Link>
+                  <Link to={`/edit/${jobPost._id}/${index}`}><button>Edit Post</button></Link>
                   <button onClick={()=>deletePost(jobPost._id)}>Delete Post</button>
                 </div>
               ))

@@ -1,18 +1,19 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useState } from "react"
 import Client from "../services/api"
 
 const EditJobPost = ({ jobPosts, selectedJobPost }) => {
   let navigate = useNavigate()
 
+  let { jobPostId, index } = useParams()
   let initialFormState = {
-    // employer: jobPosts[index].employer,
-    // title: jobPosts[index].title, 
-    // description: jobPosts[index].description, 
-    // requirements: jobPosts[index].requirements, 
-    // location: jobPosts[index].location, 
-    // salary: jobPosts[index].salary, 
-    // application_url: jobPosts[index].application_url
+    employer: jobPosts[index].employer,
+    title: jobPosts[index].title, 
+    description: jobPosts[index].description, 
+    requirements: jobPosts[index].requirements, 
+    location: jobPosts[index].location, 
+    salary: jobPosts[index].salary, 
+    application_url: jobPosts[index].application_url
   }
 
   const [formValues, setFormValues] = useState(initialFormState)
@@ -23,7 +24,7 @@ const EditJobPost = ({ jobPosts, selectedJobPost }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await Client.put(``, formValues)
+    await Client.put(`/api/jobPosts/${jobPostId}`, formValues)
     setFormValues(initialFormState)
     navigate(`/profile`)
   }
