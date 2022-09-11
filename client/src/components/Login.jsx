@@ -54,7 +54,7 @@ return (
           <label htmlFor="password">Password: </label>
           <input onChange={handleChange} name="password" type="password" placeholder="Enter your password" value={LoginValues.password} required />
         </div>
-        <button disabled={!LoginValues.email || !LoginValues.password}>Sign In</button>
+        <button type='submit'  disabled={!LoginValues.email || !LoginValues.password}>Sign In</button>
       </form>
         <div>
           <p>Don't have an account yet? Click here to register</p>
