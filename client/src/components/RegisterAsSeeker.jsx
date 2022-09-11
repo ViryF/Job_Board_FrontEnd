@@ -31,13 +31,14 @@ const RegisterAsSeeker = () => {
       confirmPassword: seekerFormValues.confirmPassword
     })
     setSeekerFormValues({ initialSeekerFormValues })
-    navigate('/login') // navigate to signIn page
+    navigate('/login')
   }
 
   return (
     <div className="seekerName">
       <div className="card-overlay centered">
         <form className="col" onSubmit={handleSubmit}>
+          <h1>Register</h1>
           <div className="input-wrapper">
             <label htmlFor="email">Email: </label>
             <input onChange={handleChange} name="email" type="text" placeholder="Enter your email" value={seekerFormValues.email} required />

@@ -43,6 +43,7 @@
   padding: 3rem;
   box-shadow: 2px 4px 10px white;
   color: white;
+  align-items: center;
 }
 
 .login .col {
@@ -57,6 +58,20 @@
 
 button {
   margin-top: 2rem;
+  margin: 1%;
+}
+
+.allJobs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.jobPost-card {
+  background-color: bisque;
+  box-sizing: border-box;
+  border-radius: 25%;
+  margin: 5%;
+  padding: 5%;
 }
 /* background color for forms: #1b1b1b */
 /* possibly background color for all other screens: #778899 / #DCDCDC / #C0C0C0 / #C3C3C3 / #EAECEC / #CECFD2 / #DADBDD */

@@ -46,6 +46,7 @@ return (
     <div className="card-overlay centered">
       <form className="col" onSubmit={handleSubmit}>
         <div className="input-wrapper">
+          <h1 className="header">Login</h1>
           <label htmlFor="email">Email: </label>
           <input onChange={handleChange} name="email" type="email" placeholder="email@example.com" value={LoginValues.email} required />
         </div>

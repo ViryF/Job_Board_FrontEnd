@@ -51,7 +51,9 @@ const EditJobPost = ({ jobPosts }) => {
 
         <label htmlFor="application_url">Application Link: </label>
         <input id='application_url'type="text" placeholder="Enter a link for seekers to submit an application" value={formValues.application_url} onChange={handleChange}/>
-        <button type="submit">Submit Change</button>
+        <button type="submit" disabled={!formValues.title || !formValues.description || !formValues.requirements || !formValues.location || !formValues.salary || !formValues.application_url}>Submit Change</button>
+        <button onClick={()=> navigate('/profile')}>Back</button>
+
       </form>
     </div>
   )

@@ -36,6 +36,7 @@ return (
   <div className="employerName">
     <div className="card-overlay centered">
       <form className="col" onSubmit={handleSubmit}>
+        <h1>Register</h1>
         <div className="input-wrapper">
           <label htmlFor="companyName">Company Name: </label>
           <input onChange={handleChange} name="companyName" type="text" placeholder="Enter your company's name" value={employerFormValues.companyName} required />
