@@ -10,7 +10,6 @@ const Nav = ({ authenticated, user, handleLogOut}) => {
           <div>
             <h4>Super Awesome Job Board</h4>
             <h3>Welcome Back!</h3>
-            <img className='profilePic' src={user.profilePicture} alt="The user's profile pic" />
             <div>
               <Link to="/feed" className='links'>Feed</Link>
               <Link to="/profile" className='links'>Home</Link>

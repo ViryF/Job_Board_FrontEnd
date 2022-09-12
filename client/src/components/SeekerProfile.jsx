@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
-const SeekerProfile = ({ jobPosts }) => {
+const SeekerProfile = ({ jobPosts, userType ,setUserType }) => {
   
   let navigate = useNavigate()
 
   // const [profileDetails, setProfileDetails] = useState([])
 
+  // useEffect(()=> {
+  //   const userType = false
+  //   setUserType()
+  // },[])
 
   return (
     <div>

@@ -29,7 +29,7 @@ const RegisterAsEmployer = () => {
       confirmPassword: employerFormValues.confirmPassword
     })
     setEmployerFormValues({ initialEmployerFormValues })
-    navigate('/login') // navigate to signIn page
+    navigate('/login') 
   }
 
 return (

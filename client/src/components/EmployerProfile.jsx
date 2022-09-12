@@ -1,8 +1,9 @@
 // import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
 import Client from "../services/api"
 
-const EmployerProfile = ({ jobPosts, getJobPosts }) => {
+const EmployerProfile = ({ jobPosts, getJobPosts, userType, setUserType }) => {
   
   let navigate = useNavigate()
 
@@ -13,6 +14,10 @@ const EmployerProfile = ({ jobPosts, getJobPosts }) => {
     getJobPosts()
   }
 
+  // useEffect(()=> {
+  //   const userType = true
+  //   setUserType()
+  // },[])
 
   return (  
     <div>

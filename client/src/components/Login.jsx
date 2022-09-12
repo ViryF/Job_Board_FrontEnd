@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 const BASE_URL = 'http://localhost:3001/api'
 
-const Login = ({ setUser, toggleAuthenticated }) => {
+const Login = ({ setUserType, setUser, toggleAuthenticated }) => {
   let navigate = useNavigate()
 
   const initialLoginValues = {
@@ -28,12 +28,14 @@ const Login = ({ setUser, toggleAuthenticated }) => {
         setLoginValues(initialLoginValues)
         setUser(payload)
         toggleAuthenticated(true)
+        setUserType('Seeker')
         navigate('/profile')
       } else {
         const payload = await SignInEmployer(LoginValues)
         setLoginValues(initialLoginValues)
         setUser(payload)
         toggleAuthenticated(true)
+        setUserType('Employer')
         navigate('/profile')
       }
     } catch (error) {
