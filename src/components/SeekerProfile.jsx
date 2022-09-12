@@ -25,7 +25,7 @@ const SeekerProfile = ({ jobPosts, bookmarkPost, searchValue, setSearchValue }) 
                   <h2>{jobPost.title}</h2>
                   <h4>{jobPost.salary}</h4>
                   <button onClick={()=> bookmarkPost(jobPost._id)}>📘</button>
-                  <button onClick={()=> navigate(`/${jobPost._id}/${index}`)}>Click Here for details about this posting</button> 
+                  <button onClick={()=> navigate(`/${jobPost._id}/${index}`)}>Job Details</button> 
                 </div>
               ))
             }
