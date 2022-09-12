@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import Client from "../services/api"
 
-const EmployerProfile = ({ jobPosts, getJobPosts, userType, setUserType, searchValue, setSearchValue }) => {
+const EmployerProfile = ({ jobPosts, getJobPosts, searchValue, setSearchValue }) => {
   
   let navigate = useNavigate()
 
@@ -34,9 +34,9 @@ const EmployerProfile = ({ jobPosts, getJobPosts, userType, setUserType, searchV
                 <div className="jobPost-card" key={jobPost._id}>
                   <h2>{jobPost.title}</h2>
                   <h4>{jobPost.salary}</h4>
-                  <button onClick={()=> navigate(`/${jobPost._id}/${index}`)}>Click Here for details about this posting</button>
-                  <Link to={`/edit/${jobPost._id}/${index}`}><button>Edit Post</button></Link>
-                  <button onClick={()=>deletePost(jobPost._id)}>Delete Post</button>
+                  <button onClick={()=> navigate(`/${jobPost._id}/${index}`)}>Job Post Details</button>
+                  <Link to={`/edit/${jobPost._id}/${index}`}><button>📋</button></Link>
+                  <button onClick={()=>deletePost(jobPost._id)}>🗑️</button>
                 </div>
               ))
             }

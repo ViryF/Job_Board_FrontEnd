@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
-const SeekerProfile = ({ jobPosts, userType, setUserType, bookmarks, setBookmarks, bookmarkPost, searchValue, setSearchValue }) => {
+const SeekerProfile = ({ jobPosts, bookmarkPost, searchValue, setSearchValue }) => {
   let navigate = useNavigate()
 
   return (
