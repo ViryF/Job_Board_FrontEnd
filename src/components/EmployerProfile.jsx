@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import Client from "../services/api"
 
-const EmployerProfile = ({ jobPosts, getJobPosts, userType, setUserType }) => {
+const EmployerProfile = ({ jobPosts, getJobPosts, userType, setUserType, searchValue, setSearchValue }) => {
   
   let navigate = useNavigate()
 
@@ -24,10 +24,19 @@ const EmployerProfile = ({ jobPosts, getJobPosts, userType, setUserType }) => {
       <h1>This is the Employer Profile</h1>
       <div className="profile-page">
         <div className="profile">
+          <div id='input-search-bar'>
+            <input type="text" placeholder='Search' onChange={event => {setSearchValue(event.target.value)}} />
+          </div>
           <h1 className="Welcome-user">Here's a list of the total jobs posted at the moment!</h1>
           <Link to={`/addJobPost`}><button>Add New Job Post</button></Link>
           <div className="allJobs">
-            {jobPosts?.map((jobPost, index) => (
+          {jobPosts.filter((val)=> {
+            if(searchValue === "") {
+              return val
+            } else if ((val.title.toLowerCase()).includes(searchValue.toLowerCase())) {
+              return val
+            }
+          })?.map((jobPost, index) => (
                 <div className="jobPost-card" key={jobPost._id}>
                   <h2>{jobPost.title}</h2>
                   <h4>{jobPost.salary}</h4>

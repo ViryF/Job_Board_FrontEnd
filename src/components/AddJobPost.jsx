@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import Client from "../services/api"
+import userEvent from "@testing-library/user-event"
 
 
-const NewJobPost = () => {
+const NewJobPost = ({user}) => {
   let navigate = useNavigate()
 
   const initialFormState = {
-    // employer: '', // need to figure out how to get this value to auto fill with the employer Id from either params or from the req.body
-    employer: '6316654281dd6febb3fa3a80',
+    employer: user.id,
     title: '',
     description: '',
     requirements: '',

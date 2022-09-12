@@ -79,7 +79,7 @@ function App() {
           <Route path="/login" element={ <Login setUser={setUser} toggleAuthenticated={toggleAuthenticated} setUserType={setUserType} /> } />
           <Route path="/profile" element={ <Profile user={user} authenticated={authenticated} jobPosts={jobPosts} getJobPosts={getJobPosts} userType={userType} bookmarks={bookmarks} setBookmarks={setBookmarks} bookmarkPost={bookmarkPost} /> } />
           <Route path="/:jobPostId/:index" element={ <JobDetails jobPosts={jobPosts} user={user} authenticated={authenticated} selectedJobPost={selectedJobPost} setSelectedJobPost={setSelectedJobPost} selectJobPost={selectJobPost} /> } />
-          <Route path="/addJobPost" element={ <AddJobPost /> } />
+          <Route path="/addJobPost" element={ <AddJobPost user ={user} /> } />
           <Route path="/edit/:jobPostId/:index" element={ <EditJobPost jobPosts={jobPosts} /> } />
         </Routes>
       </main>

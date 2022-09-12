@@ -1,9 +1,10 @@
 import EmployerProfile from './EmployerProfile'
 import SeekerProfile from './SeekerProfile'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const Profile = ({ userType, user, authenticated, jobPosts, getJobPosts, bookmarks, setBookmarks, bookmarkPost }) => {
 
+  const [searchValue, setSearchValue ] = useState("")
 
   useEffect(()=> {
     getJobPosts()
@@ -12,9 +13,9 @@ const Profile = ({ userType, user, authenticated, jobPosts, getJobPosts, bookmar
   let loggedUser
 
   if(userType === 'Seeker') {
-    loggedUser = <SeekerProfile jobPosts={jobPosts} bookmarks={bookmarks} setBookmarks={setBookmarks} bookmarkPost={bookmarkPost} />
+    loggedUser = <SeekerProfile jobPosts={jobPosts} bookmarks={bookmarks} setBookmarks={setBookmarks} bookmarkPost={bookmarkPost} setSearchValue={setSearchValue} searchValue={searchValue} />
   } else {
-    loggedUser = <EmployerProfile jobPosts={jobPosts} getJobPosts={getJobPosts}/>
+    loggedUser = <EmployerProfile jobPosts={jobPosts} getJobPosts={getJobPosts} searchValue={searchValue} setSearchValue={setSearchValue} />
   } 
 
   return user && authenticated ? (

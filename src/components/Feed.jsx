@@ -20,12 +20,6 @@ const Feed = ({ latestJobPosts }) => {
               <h2>{jobPost.title}</h2>
               <h3>{jobPost.description}</h3>
               <button onClick={() => navigate('/login')}>Login to view details about this posting</button> 
-
-              {/* <h3>{JobPost.requirements}</h3> */}
-              {/* <h4>{JobPost.location}</h4> */}
-              {/* <h4>{JobPost.salary}</h4> */}
-              {/* <h4>{JobPost.employer}</h4> */}
-              {/* <h4>{JobPost.application_url}</h4> */}
             </div>
           ))
         }
