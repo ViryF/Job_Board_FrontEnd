@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { SignInEmployer } from "../services/Auth"
 import { useEffect } from "react"
 
-const JobDetails = ({ user, authenticated, jobPosts, selectedJobPost, setSelectedJobPost, selectJobPost }) => {
+const JobDetails = ({ jobPosts, selectedJobPost, setSelectedJobPost }) => {
   let navigate = useNavigate()
 
 
@@ -22,12 +22,11 @@ const JobDetails = ({ user, authenticated, jobPosts, selectedJobPost, setSelecte
         <h2>Here are the details for the posting you selected.</h2>
         <div className="jobsDetails">
           <h2>{selectedJobPost.title}</h2>
-          {/* {selectedJobPost?.map((job, index) => (
-            <div className="jobDetails-card" key={job._id}>
-            <h2>{job.title}</h2>
-            </div>
-          ))
-          } */}
+          <h2>{selectedJobPost.location}</h2>
+          <p>{selectedJobPost.description}</p>
+          <p>{selectedJobPost.requirements}</p>
+          <p>{selectedJobPost.salary}</p>
+          <p>Go ahead and apply here! {selectedJobPost.application_url}</p>
         </div>
       </div>
       <button onClick={()=>navigate('/profile')}>Back</button>
