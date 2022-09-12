@@ -8,7 +8,7 @@ import Feed from './components/Feed';
 import Nav from './components/Nav'
 import React from 'react';
 import './styles/App.css';
-import { Routes, Route, useParams } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Client from './services/api'
 import { useState, useEffect } from 'react';
 import { CheckSession } from './services/Auth';
@@ -22,7 +22,12 @@ function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
   const [userType, setUserType] = useState('Seeker')
+  const [bookmarks, setBookmarks] = useState([])
 
+  const bookmarkPost = async (id) => {
+    const bookmarked = Client.post(`${BASE_URL}/seekers/${user.id}/${id}`)
+    setBookmarks(bookmarked.data)
+  }
 
   const getLatestJobPosts = async () => {
     const latest = await Client.get(`${BASE_URL}/jobPosts/latest`)
@@ -72,7 +77,7 @@ function App() {
           <Route path="/feed" element={ <Feed latestJobPosts={ latestJobPosts } /> } />
           <Route path="/register" element={ <Register /> } />
           <Route path="/login" element={ <Login setUser={setUser} toggleAuthenticated={toggleAuthenticated} setUserType={setUserType} /> } />
-          <Route path="/profile" element={ <Profile user={user} authenticated={authenticated} jobPosts={jobPosts} getJobPosts={getJobPosts} userType={userType} /> } />
+          <Route path="/profile" element={ <Profile user={user} authenticated={authenticated} jobPosts={jobPosts} getJobPosts={getJobPosts} userType={userType} bookmarks={bookmarks} setBookmarks={setBookmarks} bookmarkPost={bookmarkPost} /> } />
           <Route path="/:jobPostId/:index" element={ <JobDetails jobPosts={jobPosts} user={user} authenticated={authenticated} selectedJobPost={selectedJobPost} setSelectedJobPost={setSelectedJobPost} selectJobPost={selectJobPost} /> } />
           <Route path="/addJobPost" element={ <AddJobPost /> } />
           <Route path="/edit/:jobPostId/:index" element={ <EditJobPost jobPosts={jobPosts} /> } />

@@ -1,5 +1,3 @@
-import EmployerJobDetails from "./EmployerJobDetails"
-import SeekerJobDetails from "./SeekerJobDetails"
 import { useNavigate, useParams } from "react-router-dom"
 import { SignInEmployer } from "../services/Auth"
 import { useEffect } from "react"
@@ -14,7 +12,6 @@ const JobDetails = ({ jobPosts, selectedJobPost, setSelectedJobPost }) => {
   useEffect(()=> {
     setSelectedJobPost(jobPosts[index])
   }, [])
-
 
   return (
     <div className="jobDetails">

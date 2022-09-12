@@ -1,16 +1,8 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
-const SeekerProfile = ({ jobPosts, userType ,setUserType }) => {
-  
+const SeekerProfile = ({ jobPosts, userType, setUserType, bookmarks, setBookmarks, bookmarkPost }) => {
   let navigate = useNavigate()
-
-  // const [profileDetails, setProfileDetails] = useState([])
-
-  // useEffect(()=> {
-  //   const userType = false
-  //   setUserType()
-  // },[])
 
   return (
     <div>
@@ -23,6 +15,7 @@ const SeekerProfile = ({ jobPosts, userType ,setUserType }) => {
                 <div className="jobPost-card" key={jobPost._id}>
                   <h2>{jobPost.title}</h2>
                   <h4>{jobPost.salary}</h4>
+                  <button onClick={()=> bookmarkPost(jobPost._id)}>📘</button>
                   <button onClick={()=> navigate(`/${jobPost._id}/${index}`)}>Click Here for details about this posting</button> 
                 </div>
               ))

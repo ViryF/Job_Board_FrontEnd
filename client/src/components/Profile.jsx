@@ -2,7 +2,7 @@ import EmployerProfile from './EmployerProfile'
 import SeekerProfile from './SeekerProfile'
 import { useEffect } from 'react'
 
-const Profile = ({ userType, user, authenticated, jobPosts, getJobPosts }) => {
+const Profile = ({ userType, user, authenticated, jobPosts, getJobPosts, bookmarks, setBookmarks, bookmarkPost }) => {
 
 
   useEffect(()=> {
@@ -12,7 +12,7 @@ const Profile = ({ userType, user, authenticated, jobPosts, getJobPosts }) => {
   let loggedUser
 
   if(userType === 'Seeker') {
-    loggedUser = <SeekerProfile jobPosts={jobPosts} />
+    loggedUser = <SeekerProfile jobPosts={jobPosts} bookmarks={bookmarks} setBookmarks={setBookmarks} bookmarkPost={bookmarkPost} />
   } else {
     loggedUser = <EmployerProfile jobPosts={jobPosts} getJobPosts={getJobPosts}/>
   } 
