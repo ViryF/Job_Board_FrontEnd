@@ -7,17 +7,11 @@ const EmployerProfile = ({ jobPosts, getJobPosts, userType, setUserType, searchV
   
   let navigate = useNavigate()
 
-  // const [profileDetails, setProfileDetails] = useState([])
-
   const deletePost = async (jobPostId) => {
     await Client.delete(`/api/jobPosts/${jobPostId}`)
     getJobPosts()
   }
 
-  // useEffect(()=> {
-  //   const userType = true
-  //   setUserType()
-  // },[])
 
   return (  
     <div>
