@@ -2,7 +2,7 @@ import Client from './api'
 
 export const SignInEmployer = async (data) => {
   try{
-    const res = await Client.post('api/employers/login', data)
+    const res = await Client.post('/employers/login', data)
     localStorage.setItem('token', res.data.token)
     return res.data.employer
   } catch (error) {
@@ -12,7 +12,7 @@ export const SignInEmployer = async (data) => {
 
 export const SignInSeeker = async (data) => {
   try{
-    const res = await Client.post('api/seekers/login', data)
+    const res = await Client.post('/seekers/login', data)
     localStorage.setItem('token', res.data.token)
     return res.data.seeker
   } catch (error) {
@@ -22,7 +22,7 @@ export const SignInSeeker = async (data) => {
 
 export const registerEmployer = async (data) => {
   try {
-    const res = await Client.post('api/employers/register', data)
+    const res = await Client.post('/employers/register', data)
     return res.data
   } catch (error) {
     throw error
@@ -31,7 +31,7 @@ export const registerEmployer = async (data) => {
 
 export const RegisterSeeker = async (data) => {
   try {
-    const res = await Client.post('api/seekers/register', data)
+    const res = await Client.post('/seekers/register', data)
     return res.data
   } catch (error) {
     throw error
@@ -40,7 +40,7 @@ export const RegisterSeeker = async (data) => {
 
 export const CheckSession = async () => {
   try {
-    const res = await Client.get('api/employers/session')
+    const res = await Client.get('/employers/session')
     return res.data
   } catch (error) {
     throw error
