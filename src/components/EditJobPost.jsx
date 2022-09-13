@@ -24,7 +24,7 @@ const EditJobPost = ({ jobPosts }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await Client.put(`/api/jobPosts/${jobPostId}`, formValues)
+    await Client.put(`/jobPosts/${jobPostId}`, formValues)
     setFormValues(initialFormState)
     navigate(`/profile`)
   }

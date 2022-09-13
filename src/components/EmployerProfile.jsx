@@ -8,7 +8,7 @@ const EmployerProfile = ({ jobPosts, getJobPosts, searchValue, setSearchValue })
   let navigate = useNavigate()
 
   const deletePost = async (jobPostId) => {
-    await Client.delete(`/api/jobPosts/${jobPostId}`)
+    await Client.delete(`/jobPosts/${jobPostId}`)
     getJobPosts()
   }
 

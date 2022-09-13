@@ -25,7 +25,7 @@ const NewJobPost = ({user}) => {
 
   const handleSubmit = async (e) =>{
     e.preventDefault()
-    await Client.post(`/api/jobPosts/post`, formValues)
+    await Client.post(`/jobPosts/post`, formValues)
     navigate(`/profile`)
   }
   return (
