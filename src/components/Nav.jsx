@@ -13,7 +13,6 @@ const Nav = ({ authenticated, user, handleLogOut}) => {
             <div>
               <Link to="/feed" className='links'>Feed</Link>
               <Link to="/profile" className='links'>Home</Link>
-              <Link to="/settings" className='links'>Settings</Link>
               <Link onClick={handleLogOut} to="/feed" className='links'>Log Out</Link>
             </div>
           </div>

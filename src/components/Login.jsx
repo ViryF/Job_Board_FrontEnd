@@ -2,7 +2,7 @@ import { SignInEmployer, SignInSeeker } from "../services/Auth";
 import axios from 'axios'
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
-const BASE_URL = 'http://localhost:3001/api'
+const BASE_URL = 'https://damp-retreat-34431.herokuapp.com/api'
 
 const Login = ({ setUserType, setUser, toggleAuthenticated }) => {
   let navigate = useNavigate()

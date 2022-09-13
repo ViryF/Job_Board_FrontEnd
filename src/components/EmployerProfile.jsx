@@ -19,7 +19,7 @@ const EmployerProfile = ({ jobPosts, getJobPosts, searchValue, setSearchValue })
       <div className="profile-page">
         <div className="profile">
           <div id='input-search-bar'>
-            <input type="text" placeholder='Search' onChange={event => {setSearchValue(event.target.value)}} />
+            <input type="text" placeholder='Search job title' onChange={event => {setSearchValue(event.target.value)}} />
           </div>
           <h1 className="Welcome-user">Here's a list of the total jobs posted at the moment!</h1>
           <Link to={`/addJobPost`}><button>Add New Job Post</button></Link>
@@ -33,7 +33,7 @@ const EmployerProfile = ({ jobPosts, getJobPosts, searchValue, setSearchValue })
           })?.map((jobPost, index) => (
                 <div className="jobPost-card" key={jobPost._id}>
                   <h2>{jobPost.title}</h2>
-                  <h4>{jobPost.salary}</h4>
+                  <h4>Salary: {jobPost.salary}</h4>
                   <button onClick={()=> navigate(`/${jobPost._id}/${index}`)}>Job Post Details</button>
                   <Link to={`/edit/${jobPost._id}/${index}`}><button>📋</button></Link>
                   <button onClick={()=>deletePost(jobPost._id)}>🗑️</button>

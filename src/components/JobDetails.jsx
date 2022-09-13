@@ -19,10 +19,15 @@ const JobDetails = ({ jobPosts, selectedJobPost, setSelectedJobPost }) => {
         <h2>Here are the details for the posting you selected.</h2>
         <div className="jobsDetails">
           <h2>{selectedJobPost.title}</h2>
-          <h2>{selectedJobPost.location}</h2>
+          <h2>Location:</h2>
+          <h3>{selectedJobPost.location}</h3>
+          <h3>Job Description:</h3>
           <p>{selectedJobPost.description}</p>
+          <h3>Requirements:</h3>
           <p>{selectedJobPost.requirements}</p>
+          <h3>Salary:</h3>
           <p>{selectedJobPost.salary}</p>
+          <h3>Application</h3>
           <p>Go ahead and apply here! {selectedJobPost.application_url}</p>
         </div>
       </div>

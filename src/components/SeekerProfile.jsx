@@ -10,7 +10,7 @@ const SeekerProfile = ({ jobPosts, bookmarkPost, searchValue, setSearchValue }) 
       <div className="profile-page">
         <div className="profile">
           <div id='input-search-bar'>
-            <input type="text" placeholder='Search' onChange={event => {setSearchValue(event.target.value)}} />
+            <input type="text" placeholder='Search job title' onChange={event => {setSearchValue(event.target.value)}} />
           </div>
           <h1 className="Welcome-user">Here's a list of the total jobs posted at the moment!</h1>
           <div className="allJobs">
@@ -23,7 +23,7 @@ const SeekerProfile = ({ jobPosts, bookmarkPost, searchValue, setSearchValue }) 
           })?.map((jobPost, index) => (
                 <div className="jobPost-card" key={jobPost._id}>
                   <h2>{jobPost.title}</h2>
-                  <h4>{jobPost.salary}</h4>
+                  <h4>Salary: {jobPost.salary}</h4>
                   <button onClick={()=> bookmarkPost(jobPost._id)}>📘</button>
                   <button onClick={()=> navigate(`/${jobPost._id}/${index}`)}>Job Details</button> 
                 </div>

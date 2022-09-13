@@ -12,7 +12,7 @@ import { Routes, Route } from 'react-router-dom'
 import Client from './services/api'
 import { useState, useEffect } from 'react';
 import { CheckSession } from './services/Auth';
-const BASE_URL = 'http://localhost:3001/api'
+// const BASE_URL = 'https://damp-retreat-34431.herokuapp.com/api'
 
 function App() {
 
@@ -25,22 +25,22 @@ function App() {
   const [bookmarks, setBookmarks] = useState([])
 
   const bookmarkPost = async (id) => {
-    const bookmarked = Client.post(`${BASE_URL}/seekers/${user.id}/${id}`)
+    const bookmarked = Client.post(`/seekers/${user.id}/${id}`)
     setBookmarks(bookmarked.data)
   }
 
   const getLatestJobPosts = async () => {
-    const latest = await Client.get(`${BASE_URL}/jobPosts/latest`)
+    const latest = await Client.get(`/jobPosts/latest`)
     setLatestJobPosts(latest.data)
   }
 
   const selectJobPost = async (id) => {
-    let post = await Client.get(`${BASE_URL}/jobPosts/${id}`)
+    let post = await Client.get(`/jobPosts/${id}`)
     setSelectedJobPost(post.data)
   }
 
   const getJobPosts = async () => {
-    let posts = await Client.get(`${BASE_URL}/jobPosts/all`)
+    let posts = await Client.get(`/jobPosts/all`)
     setJobPosts(posts.data)
   } 
   

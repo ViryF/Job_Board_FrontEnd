@@ -18,7 +18,7 @@ const Feed = ({ latestJobPosts }) => {
           latestJobPosts?.map((jobPost) => (
             <div className="jobPost-card" key={jobPost._id}>
               <h2>{jobPost.title}</h2>
-              <h3>{jobPost.description}</h3>
+              <h3>Salary: {jobPost.salary}</h3>
               <button onClick={() => navigate('/login')}>Login to view details about this posting</button> 
             </div>
           ))
