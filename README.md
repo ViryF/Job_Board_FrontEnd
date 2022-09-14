@@ -17,10 +17,21 @@
 
 ***
 ## ***Screenshots*** 
-### **Image header 1**
-![Image]()
-### **Image header 2**
-![Image]()
+### **Register Page**
+![Register Employer](https://media.discordapp.net/attachments/994993050885570580/1019418782084644874/unknown.png)
+![Register Seeker](https://media.discordapp.net/attachments/994993050885570580/1019418931594809404/unknown.png)
+### **Login Page**
+![Login Page](https://media.discordapp.net/attachments/994993050885570580/1019417734297178172/unknown.png)
+### **Feed Page**
+![Feed Page](https://media.discordapp.net/attachments/994993050885570580/1019417894578307183/unknown.png?width=956&height=712)
+### **Profile Page**
+![Seeker Profile](https://media.discordapp.net/attachments/994993050885570580/1019418261156270151/unknown.png)
+![Employer Profile](https://media.discordapp.net/attachments/994993050885570580/1019418261156270151/unknown.png)
+### **Edit Post Form**
+![Edit Post](https://media.discordapp.net/attachments/994993050885570580/1019419677937647647/unknown.png?width=706&height=853)
+### **Add Post Form**
+![Add Post](https://media.discordapp.net/attachments/994993050885570580/1019420121900515399/unknown.png?width=670&height=853)
+
 ***
 ## ***Future Updates***
 - [] To enable a live chat function between job seekers and the employers.
@@ -33,12 +44,3 @@
 ### Trello Workspace: [Trello](https://trello.com/invite/b/2wVLzugl/dddfda0382ca06bdb1f901139ba743ea/job-board)
 ### Markdown Guide: [ia.net](https://ia.net/writer/support/general/markdown-guide) 
 ### Markdown Cheatsheet: [GitHub](https://github.com/ViryF/u1_hw_markdown)
-
-ZipRecruiter@gmail.com
-ziprecruiter
-
-hcahealth@gmail.com
-hcahealth
-
-computermerch@gmail.com
-computermerch

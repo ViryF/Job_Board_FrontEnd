@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import Client from "../services/api"
-import userEvent from "@testing-library/user-event"
 
 
 const NewJobPost = ({user}) => {
