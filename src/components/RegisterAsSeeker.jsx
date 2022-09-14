@@ -41,27 +41,27 @@ const RegisterAsSeeker = () => {
           <h1>Register</h1>
           <div className="input-wrapper">
             <label htmlFor="email">Email: </label>
-            <input onChange={handleChange} name="email" type="text" placeholder="Enter your email" value={seekerFormValues.email} required />
+            <input id="regEmail" onChange={handleChange} name="email" type="text" placeholder="Enter your email" value={seekerFormValues.email} required />
           </div>
 
           <div className="input-wrapper">
             <label htmlFor="firstName">First Name: </label>
-            <input onChange={handleChange} name="firstName" type="text" placeholder="Enter your first name" value={seekerFormValues.firstName} required />
+            <input id="regFirstName" onChange={handleChange} name="firstName" type="text" placeholder="Enter your first name" value={seekerFormValues.firstName} required />
           </div>
 
           <div className="input-wrapper">
             <label htmlFor="lastName">Last Name: </label>
-            <input onChange={handleChange} name="lastName" type="text" placeholder="Enter your last name" value={seekerFormValues.lastName} required />
+            <input id="regLastName" onChange={handleChange} name="lastName" type="text" placeholder="Enter your last name" value={seekerFormValues.lastName} required />
           </div>
 
           <div className="input-wrapper">
             <label htmlFor="password">Password: </label>
-            <input onChange={handleChange} name="password" type="text" placeholder="Enter your password" value={seekerFormValues.password} required />
+            <input id="regPassword" onChange={handleChange} name="password" type="text" placeholder="Enter your password" value={seekerFormValues.password} required />
           </div>
 
           <div className="input-wrapper">
             <label htmlFor="confirmPassword">Confirm Password: </label>
-            <input onChange={handleChange} name="confirmPassword" type="text" placeholder="Confirm your password" value={seekerFormValues.confirmPassword} required />
+            <input id="regConfirm" onChange={handleChange} name="confirmPassword" type="text" placeholder="Confirm your password" value={seekerFormValues.confirmPassword} required />
           </div>
           <button 
           disabled={!seekerFormValues.email || !seekerFormValues.firstName || !seekerFormValues.lastName || (!seekerFormValues.password && seekerFormValues.confirmPassword === seekerFormValues.password)}>Register this Job Seeker</button>

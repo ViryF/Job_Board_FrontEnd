@@ -22,7 +22,7 @@ const Register = () => {
     <div className="registration-nav">
     </div>
     <div className="registration-container">{registration}
-    <button className="switchRegistrationType" onClick={()=> {registrationType? setRegistrationType(false):setRegistrationType(true)}}>{text}</button>
+    <button className="switchRegistrationType button"  onClick={()=> {registrationType? setRegistrationType(false):setRegistrationType(true)}}>{text}</button>
     </div>
   </div>
 )

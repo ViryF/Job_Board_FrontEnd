@@ -39,22 +39,22 @@ return (
         <h1>Register</h1>
         <div className="input-wrapper">
           <label htmlFor="companyName">Company Name: </label>
-          <input onChange={handleChange} name="companyName" type="text" placeholder="Enter your company's name" value={employerFormValues.companyName} required />
+          <input id="regCompany" onChange={handleChange} name="companyName" type="text" placeholder="Enter your company's name" value={employerFormValues.companyName} required />
         </div>
 
         <div className="input-wrapper">
           <label htmlFor="email">Email: </label>
-          <input onChange={handleChange} name="email" type="text" placeholder="Enter your email" value={employerFormValues.email} required />
+          <input id="regEmail" onChange={handleChange} name="email" type="text" placeholder="Enter your email" value={employerFormValues.email} required />
         </div>
 
         <div className="input-wrapper">
           <label htmlFor="password">Password: </label>
-          <input onChange={handleChange} name="password" type="text" placeholder="Enter your password" value={employerFormValues.password} required />
+          <input id="regPassword" onChange={handleChange} name="password" type="text" placeholder="Enter your password" value={employerFormValues.password} required />
         </div>
 
         <div className="input-wrapper">
           <label htmlFor="confirmPassword">Confirm Password: </label>
-          <input onChange={handleChange} name="confirmPassword" type="text" placeholder="Confirm your password" value={employerFormValues.confirmPassword} required />
+          <input id="regConfirm" onChange={handleChange} name="confirmPassword" type="text" placeholder="Confirm your password" value={employerFormValues.confirmPassword} required />
         </div>
         <button
           disabled={!employerFormValues.email || !employerFormValues.companyName || (!employerFormValues.password && employerFormValues.confirmPassword === employerFormValues.password)}

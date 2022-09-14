@@ -8,6 +8,7 @@ body {
 }
 
 .navbar {
+  display: block;
   justify-content: space-between;
   align-items: center;
   color: white;
@@ -19,16 +20,19 @@ body {
   text-decoration: none;
 }
 
-/* .navbar:a::before {
-} */
+.navLinks {
+  margin: 3%;
+  text-decoration: none;
+  color: white;
+}
 
 .addPost {
   display: flex;
   align-content: center;
   align-items: center;
   flex-direction: column;
-  /* background-color: #1F1F1E; */
-  color: black;
+  background-color: #1F1F1E;
+  color: white;
   height: 90vh;
   
 }
@@ -38,10 +42,47 @@ body {
   align-content: center;
   align-items: center;
   flex-direction: column;
-  /* background-color: #1F1F1E; */
-  color: black;
+  background-color: #1F1F1E;
+  color: white;
   height: 90vh;
-  
+}
+
+#title,
+#description,
+#requirements,
+#location,
+#salary,
+#application_url {
+  width: 200px;
+  padding: 4px;
+  margin-bottom: 10px;
+  left: 5%;
+  box-sizing: border-box; 
+  display: block;
+} 
+
+#loginEmail,
+#loginPassword {
+  width: 200px;
+  padding: 4px;
+  margin-bottom: 10px;
+  left: 5%;
+  box-sizing: border-box; 
+  display: block;
+}
+
+#regCompany,
+#regEmail,
+#regPassword,
+#regConfirm,
+#regFirstName,
+#regLastName {
+  width: 200px;
+  padding: 4px;
+  margin-bottom: 10px;
+  left: 5%;
+  box-sizing: border-box; 
+  display: block;
 }
 
 .col {
@@ -65,9 +106,30 @@ body {
   color: white;
 }
 
+.card-overlay {
+  background-color: #1F1F1E;
+  height: 1230px;
+}
+
+.registration-page {
+  background-color: #1F1F1E;
+  height: 1200px;
+}
+
+.employerName, .seekerName {
+  background-color: #1F1F1E;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 3rem;
+  box-shadow: 2px 4px 10px white;
+  color: white;
+}
+
 button {
   margin-top: 2rem;
   margin: 1%;
+
 }
 
 .allJobs {
@@ -82,8 +144,3 @@ button {
   margin: 5%;
   padding: 5%;
 }
-/* background color for forms: #1b1b1b */
-/* possibly background color for all other screens: #778899 / #DCDCDC / #C0C0C0 / #C3C3C3 / #EAECEC / #CECFD2 / #DADBDD */
-/* maybe nav background color: #778899 / #1F1F1E*/
-
-/* EAECEC / CECFD2 */

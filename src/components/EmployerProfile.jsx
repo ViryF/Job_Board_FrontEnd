@@ -34,7 +34,7 @@ const EmployerProfile = ({ jobPosts, getJobPosts, searchValue, setSearchValue })
                 <div className="jobPost-card" key={jobPost._id}>
                   <h2>{jobPost.title}</h2>
                   <h4>Salary: {jobPost.salary}</h4>
-                  <button onClick={()=> navigate(`/${jobPost._id}/${index}`)}>Job Post Details</button>
+                  <button className="button" onClick={()=> navigate(`/${jobPost._id}/${index}`)}>Job Post Details</button>
                   <Link to={`/edit/${jobPost._id}/${index}`}><button>📋</button></Link>
                   <button onClick={()=>deletePost(jobPost._id)}>🗑️</button>
                 </div>

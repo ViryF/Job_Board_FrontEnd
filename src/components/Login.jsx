@@ -50,18 +50,18 @@ return (
         <div className="input-wrapper">
           <h1 className="header">Login</h1>
           <label htmlFor="email">Email: </label>
-          <input onChange={handleChange} name="email" type="email" placeholder="email@example.com" value={LoginValues.email} required />
+          <input id="loginEmail" onChange={handleChange} name="email" type="email" placeholder="email@example.com" value={LoginValues.email} required />
         </div>
 
         <div className="input-wrapper">
           <label htmlFor="password">Password: </label>
-          <input onChange={handleChange} name="password" type="password" placeholder="Enter your password" value={LoginValues.password} required />
+          <input id="loginPassword" onChange={handleChange} name="password" type="password" placeholder="Enter your password" value={LoginValues.password} required />
         </div>
-        <button type='submit'  disabled={!LoginValues.email || !LoginValues.password}>Sign In</button>
+        <button className="button" type='submit'  disabled={!LoginValues.email || !LoginValues.password}>Sign In</button>
       </form>
         <div>
           <p>Don't have an account yet? Click here to register</p>
-        <button onClick={()=> navigate('/register')}>Register</button>
+        <button className="button" onClick={()=> navigate('/register')}>Register</button>
         </div>
     </div>
   </div>

@@ -11,9 +11,9 @@ const Nav = ({ authenticated, user, handleLogOut}) => {
             <h4>Super Awesome Job Board</h4>
             <h3>Welcome Back!</h3>
             <div>
-              <Link to="/feed" className='links'>Feed</Link>
-              <Link to="/profile" className='links'>Home</Link>
-              <Link onClick={handleLogOut} to="/feed" className='links'>Log Out</Link>
+              <Link to="/feed" className='navLinks'>Feed</Link>
+              <Link to="/profile" className='navLinks'>Home</Link>
+              <Link onClick={handleLogOut} to="/feed" className='navLinks'>Log Out</Link>
             </div>
           </div>
         </div>
@@ -24,9 +24,9 @@ const Nav = ({ authenticated, user, handleLogOut}) => {
     <nav className='navbar'>
       <div>
         <h4>Super Awesome Job Board</h4>
-        <Link to="/feed">Feed</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/login">Login</Link>
+        <Link to="/feed" className='navLinks'>Feed</Link>
+        <Link to="/register" className='navLinks'>Register</Link>
+        <Link to="/login" className='navLinks'>Login</Link>
       </div>
     </nav>
   )

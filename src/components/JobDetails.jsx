@@ -31,7 +31,7 @@ const JobDetails = ({ jobPosts, selectedJobPost, setSelectedJobPost }) => {
           <p>Go ahead and apply here! {selectedJobPost.application_url}</p>
         </div>
       </div>
-      <button onClick={()=>navigate('/profile')}>Back</button>
+      <button className="button" onClick={()=>navigate('/profile')}>Back</button>
     </div>
   )
 }
